@@ -14,10 +14,16 @@ public class Trie {
     }
 
     public Trie(Collection<String> words) {
+        if (words == null) {
+            throw new IllegalArgumentException("List of words cannot be null.");
+        }
         words.forEach(this::add);
     }
 
     public void add(String word) {
+        if (word == null) {
+            throw new IllegalArgumentException("Argument must not be null.");
+        }
         String copy = word.toLowerCase().trim();
         TrieNodeIndexPair match = findEndOfMatch(copy);
         if (match.index < copy.length()) {
@@ -28,6 +34,9 @@ public class Trie {
     }
 
     public List<String> getPrefixMatches(String prefix) {
+        if (prefix == null) {
+            throw new IllegalArgumentException("Prefix given cannot be null.");
+        }
         List<String> words = new ArrayList<>();
         String copy = prefix.toLowerCase().trim();
         TrieNodeIndexPair match = findEndOfMatch(copy);

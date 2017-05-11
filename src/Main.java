@@ -5,8 +5,9 @@ public class Main {
 
     public static void main(String[] args) {
         Trie trie = new Trie();
-        trie.add("mom");
-        trie.add("dad");
-        System.out.println(trie.contains("mom"));
+        trie.add("cat");
+        trie.add("catastrophy");
+        trie.add("catastrophic");
+        System.out.println(trie.getPrefixMatches("cata"));
     }
 }
